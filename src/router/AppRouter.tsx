@@ -2,9 +2,11 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Home from '../pages/home/Home';
 import Taxi from '../pages/home/taxi/Taxi';
 import Profile from '../pages/home/profile/Profile';
-import { Icon } from '@rneui/base';
+import { Icon } from '@rneui/themed';
 // import material icons
 import MIcon from'react-native-vector-icons/MaterialIcons';
+import FIcon from 'react-native-vector-icons/FontAwesome5';
+import React from 'react';
 
 // create a tab navigator for bottom navigation on the app
 const TabNavigator = createBottomTabNavigator();
@@ -17,7 +19,8 @@ export const HomeRouteStack = () => {
         screenOptions={({route} ) => ({
           headerShown: false,
           tabBarIcon: ({focused, color, size}) => {
-            var iconName: string;
+            let iconName;
+            let iconColor = focused ? 'text-slate-500' : '#000';
 
             // set the icon name based on the route name
             switch (route.name) {
@@ -31,12 +34,14 @@ export const HomeRouteStack = () => {
                 break;
               case 'Profile':
                 // change the icon name based on the focused state
-                iconName = focused ? 'person' : 'person-outline';
+                iconName = focused ? 'user' : 'person-outline';
+                break;
               default: 
+                iconName = 'home';
             }
 
             // return the icon component
-            return <Icon name='home' type='material'/>
+            return <FIcon className={iconColor} name={iconName} size={14} />
           }
         })}
     >

@@ -7,6 +7,9 @@ import {
   View,
 } from "react-native";
 import React from "react";
+import { signInAnonymously } from "../../helpers/firebase/auth.helpers";
+import { WELCOME_MESSAGE } from "../../utils/strings/app.strings";
+import ElevatedButton from "../../components/buttons/ElevatedButton";
 
 const IntroductionPage = ({navigation}) => {
   return (
@@ -15,17 +18,20 @@ const IntroductionPage = ({navigation}) => {
         resizeMode="cover"
         className="h-full flex flex-col justify-end"
         source={require("../../../assets/images/taxi-welcome.jpg")}>
-        <View className="h-32 bg-slate-700 flex flex-col w-4/5 justify-self-center self-center mb-6 p-6 rounded-xl">
-          <Text className=" text-white text-md mb-4">
-            Welcome to the taxi app. This is a sample app to demonstrate the
+        <View className="h-fit bg-slate-700 flex flex-col w-11/12 justify-self-center self-center mb-6 p-6 rounded-xl">
+          <Text className=" text-white text-md mb-4 text-center font-bold text-xl">
+            {WELCOME_MESSAGE}
           </Text>
           <View>
             {/* TODO use custom button */}
-            <Button
+            <ElevatedButton
               title="Get started"
-              onPress={() => {
+              onPress={async() => {
+                // await signInAnonymously()
                 navigation.navigate("Login");
               }}
+              backgroundColor="bg-slate-500"
+              textColor="text-white"
             />
           </View>
         </View>
