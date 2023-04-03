@@ -14,12 +14,13 @@ export const signInWithEmailAndPassword = async (email: string, password: string
 
 // create user with email and password
 export const createUserWithEmailAndPassword = async (email: string, password: string) => {
-    try {
-        const response = await auth().createUserWithEmailAndPassword(email, password);
-        return response;
-    } catch (error) {
-        return error;
-    }
+    return await auth().createUserWithEmailAndPassword(email, password)
+                    .then((response)=>{
+                        return response.user;
+                    })
+                    .catch((err)=>{
+                        return Error(err);
+                    });
 }
 
 // sign out

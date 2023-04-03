@@ -1,5 +1,5 @@
 /* eslint-disable quotes */
-import {View, Text, TextInput, Button, TouchableOpacity} from "react-native";
+import {View, Text, TextInput, Button, TouchableOpacity, Pressable} from "react-native";
 import React from "react";
 import {Dialog} from '@rneui/base';
 import ElevatedButton from "../../../components/buttons/ElevatedButton";
@@ -44,7 +44,7 @@ const Login = ({navigation}) => {
     {
       title: "Login with Google",
       onPress: () => {
-        setShowDialog(true);
+        navigation.navigate('Home')
         console.log("Login with Google");
       },
       textColor:"text-white",
@@ -83,17 +83,23 @@ const Login = ({navigation}) => {
         defaultValue={password}
         className=" border-2 rounded-md my-4 p-4 max-w-sm w-full"
       />
-      {buttonProps.map((button, index) => (
+      <Pressable
+        onPress={()=>{
+          //todo: add navigate to forgot password page
+        }}
+      >
+        <Text className=" self-end text-blue-600">Forgot password?</Text>
+      </Pressable>
+      
         <View className="my-2">
           <ElevatedButton
-            key={index}
-            title={button.title}
-            onPress={button.onPress}
-            textColor={button.textColor}
-            backgroundColor={button.backgroundColor}
+            
+            title={buttonProps[0].title}
+            onPress={buttonProps[0].onPress}
+            textColor={buttonProps[0].textColor}
+            backgroundColor={buttonProps[0].backgroundColor}
           />
         </View>
-      ))}
       <ElevatedButton
         title="log out"
         onPress={async() => {
@@ -110,6 +116,12 @@ const Login = ({navigation}) => {
         textColor="text-white"
         backgroundColor="bg-red-500"
       />
+      <Text className="my-2 text-center">
+        Don't have an account?
+        <Pressable>
+          <Text className="text-blue-500">Create one</Text>
+        </Pressable>
+      </Text>
     </View>
   );
 };
