@@ -46,7 +46,7 @@ const SignUp = ({navigation}) => {
             title='Create an account'
             onPress = {async()=>{
               await register()
-              if(userData != null){
+              if(userData){
                 navigation.navigate('Home')
               }
             }}
