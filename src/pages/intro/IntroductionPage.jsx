@@ -28,7 +28,7 @@ const IntroductionPage = ({navigation}) => {
               title="Get started"
               onPress={async() => {
                 // await signInAnonymously()
-                navigation.navigate("Login");
+                navigation.navigate("Home");
               }}
               backgroundColor="bg-slate-500"
               textColor="text-white"
