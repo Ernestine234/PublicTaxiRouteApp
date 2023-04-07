@@ -4,6 +4,7 @@ import HomeAppBar from './components/HomeAppBar';
 import CurrentLocationMapCard from './components/CurrentLocationMapCard';
 import RoutesHistoryContainer from './components/RoutesHistoryContainer';
 import Geolocation from '@react-native-community/geolocation';
+import ElevatedButton from '../../components/buttons/ElevatedButton';
 
 const requestLocation = () =>{
 
@@ -69,17 +70,36 @@ const Home = ({navigation}) => {
   return (
     <ScrollView >
       <HomeAppBar navigation={navigation}/>
-      {position == null ? <Text>Loading</Text> : <Text>Herr</Text>}
-      {position && 
+      {position ?
         <CurrentLocationMapCard
           lat={position.lat}
           lng={position.lng}
           latDelta={0.0922}
           lngDelta={0.0421}
-      />
+        /> : 
+        <View className='bg-slate-600 self-center rounded-md items-center justify-center shadow-md h-60 w-11/12'>
+          <Text className='text-slate-50 text-2xl text-center'>Getting current location....</Text>
+        </View>
       }
       {/* <RoutesHistoryContainer/> */}
-      {position && <Text>{position.lat}</Text>}
+      <View
+        className='flex flex-row justify-between my-6 items-center px-4'
+      >
+        <Text
+          className='text-xl font-bold'
+        >Recent route</Text>
+        
+        <ElevatedButton
+          onPress={()=>{}}
+          title='View history'
+          backgroundColor='bg-slate-300'
+          textColor='text-slate-800'
+          width='w-32'
+          height='h-8'
+          fontSize='text-sm'
+        />
+      </View>
+      <RoutesHistoryContainer />
     </ScrollView>
   );
 };

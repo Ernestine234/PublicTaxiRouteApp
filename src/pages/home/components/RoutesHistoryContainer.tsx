@@ -119,17 +119,10 @@ const RoutesHistoryContainer = () => {
       ]
 
     return (
-        <View className="w-full">
-            <ScrollView 
-              className="flex w-full self-center box-border bg-red-500 flex-col gap-10"
-              contentContainerStyle={{
-                alignItems: 'center'
-              }}
-            >
+        <View className="w-full items-center flex-auto">
                 {rides.map((ride) => {
                     return <RouteHistoryTile {...ride}/>
                 })}
-            </ScrollView>
         </View>
     )
 };

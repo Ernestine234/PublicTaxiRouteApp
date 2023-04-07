@@ -30,7 +30,7 @@ export const HomeRouteStack = () => {
                 break;
               case 'Taxi':
                 // change the icon name based on the focused state
-                iconName = focused ? 'car' : 'car-outline';
+                iconName = focused ? 'paper-plane' : 'paper-plane-outline';
                 break;
               case 'Profile':
                 // change the icon name based on the focused state

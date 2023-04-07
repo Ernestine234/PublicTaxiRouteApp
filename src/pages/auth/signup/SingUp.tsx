@@ -4,6 +4,7 @@ import React from 'react';
 import { useCreateUserWithEmailAndPassword } from '../../../helpers/controllers/auth.hooks';
 import ElevatedButton from '../../../components/buttons/ElevatedButton';
 import { signOut } from '../../../helpers/firebase/auth.helpers';
+import { SIGNUP_MESSAGE } from '../../../utils/strings/app.strings';
 
 const SignUp = ({navigation}) => {
   // email 
@@ -19,8 +20,8 @@ const SignUp = ({navigation}) => {
       <Text className="text-3xl font-bold mt-20">
         Welcome!
       </Text>
-      <Text className="mb-12">
-        Login in right now to access our services
+      <Text className="mb-12 text-base">
+        {SIGNUP_MESSAGE}
       </Text>
       {loading && <Text>Loading...</Text>}
       {error && <Text>{error.message}</Text>}

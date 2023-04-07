@@ -3,11 +3,15 @@ import { Text, View } from "react-native"
 import {Icon} from '@rneui/themed'
 import IconButton from "../../../components/buttons/IconButton"
 import { signOut } from "../../../helpers/firebase/auth.helpers"
+import { useUser } from "../../../helpers/controllers/user.controller"
 
 const HomeAppBar = (props) => {
+
+    // get user info from context
+    const user = useUser();
     return (
-        <View className="h-fit p-2 flex flex-row justify-between">
-            <Text>Hello Erne</Text>
+        <View className="h-fit px-4 py-6 flex flex-row justify-between">
+            <Text className="text-xl font-bold">Hello {user?.email}</Text>
             <View
                 className=""
             >

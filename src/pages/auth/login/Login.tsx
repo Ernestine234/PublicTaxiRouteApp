@@ -38,8 +38,8 @@ const Login = ({navigation}) => {
       textColor:"text-white",
       backgroundColor:"bg-green-500",
       onPress: async() => {
-       await login();
-       if (user) {
+       await login()
+       if(userData){
         navigation.navigate('Home')
        }
       },
@@ -128,7 +128,7 @@ const Login = ({navigation}) => {
         textColor="text-white"
         backgroundColor="bg-red-500"
       />
-      <Text className="my-2 text-center">
+      <Text className="my-2 text-center box-border">
         Don't have an account?
         <Pressable
          onPress={()=>{

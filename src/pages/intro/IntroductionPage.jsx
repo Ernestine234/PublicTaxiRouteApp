@@ -28,10 +28,11 @@ const IntroductionPage = ({navigation}) => {
               title="Get started"
               onPress={async() => {
                 // await signInAnonymously()
-                navigation.navigate("Home");
+                navigation.navigate("Login");
               }}
               backgroundColor="bg-slate-500"
               textColor="text-white"
+              height="h-12"
             />
           </View>
         </View>

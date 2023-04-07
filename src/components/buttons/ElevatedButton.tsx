@@ -7,16 +7,21 @@ export interface ButtonProps {
   onPress: () => void;
   textColor: string;
   backgroundColor: string;
+  height?: string;
+  width?: string;
+  fontSize?: string;
 }
 
 const ElevatedButton = (props:ButtonProps,) => {
   return (
     <Pressable
       className={`${props.backgroundColor} flex flex-row 
-      justify-center items-center rounded-md shadow-md h-12 max-w-sm w-full self-center`}
+      justify-center items-center rounded-md shadow-md 
+      ${props.height ? props.height : 'h-12'} 
+      ${props.width ? props.width : 'w-full'} max-w-sm self-center`}
       onPress={props.onPress}
     >
-      <Text className={`${props.textColor} text-base `}>
+      <Text className={`${props.textColor} ${props.fontSize ? props.fontSize : 'text-base'} `}>
         {props.title}
       </Text>
     </Pressable>
