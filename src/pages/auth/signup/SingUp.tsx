@@ -12,7 +12,12 @@ const SignUp = ({navigation}) => {
   //password
   const [password, setPassword] = React.useState('');
   // use signup hook
-  const {register, loading,error,userData} = useCreateUserWithEmailAndPassword(email,password);
+  const {
+    register,
+    loading,
+    error,
+    userData
+  } = useCreateUserWithEmailAndPassword(email,password);
 
 
   return (
