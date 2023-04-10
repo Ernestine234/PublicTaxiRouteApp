@@ -32,6 +32,7 @@ const IntroductionPage = ({navigation}) => {
               }}
               backgroundColor="bg-slate-500"
               textColor="text-white"
+              height="h-12"
             />
           </View>
         </View>

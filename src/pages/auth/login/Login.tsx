@@ -28,7 +28,7 @@ const Login = ({navigation}) => {
   const [dialogProps, setDialogProps] = React.useState<DialogProps | null>(null);
 
   // login with email and password
-  const {login, loading, userData, error}  = useLoginWithEmailAndPassword(email,password);
+  const {login, loading, userData, error, setError}  = useLoginWithEmailAndPassword(email,password);
 
 
 
@@ -38,7 +38,10 @@ const Login = ({navigation}) => {
       textColor:"text-white",
       backgroundColor:"bg-green-500",
       onPress: async() => {
-       await login();
+       await login()
+       if(userData){
+        navigation.navigate('Home')
+       }
       },
     },
     {
@@ -68,7 +71,16 @@ const Login = ({navigation}) => {
         Login in right now to access our services
       </Text>
       {loading && <Text>Loading...</Text>}
-      {error && <Text>{error.message}</Text>}
+      {error && 
+        <Dialog
+          onBackdropPress={()=>{
+            // reset error to dismiss dialog
+            setError(null)
+          }}
+        >
+          <Dialog.Title>{error.name}</Dialog.Title>
+        </Dialog>
+        }
       {userData && <Text>{userData.email}</Text>}
       <TextInput
         placeholder="Email"
@@ -116,9 +128,14 @@ const Login = ({navigation}) => {
         textColor="text-white"
         backgroundColor="bg-red-500"
       />
-      <Text className="my-2 text-center">
+      <Text className="my-2 text-center box-border">
         Don't have an account?
-        <Pressable>
+        <Pressable
+         onPress={()=>{
+          // navigate to create account page
+          navigation.navigate('SignUp')
+         }}
+        >
           <Text className="text-blue-500">Create one</Text>
         </Pressable>
       </Text>

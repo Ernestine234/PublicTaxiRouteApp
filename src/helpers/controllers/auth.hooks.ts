@@ -33,7 +33,7 @@ export const useLoginWithEmailAndPassword = (email:string, password: string) => 
         }
     };
 
-    return {login, loading, error, userData };
+    return {login, loading, error, userData, setError };
 };
 
 // custom hook to register a user using email and password

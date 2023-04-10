@@ -30,22 +30,27 @@ export const HomeRouteStack = () => {
                 break;
               case 'Taxi':
                 // change the icon name based on the focused state
-                iconName = focused ? 'car' : 'car-outline';
+                iconName = focused ? 'paper-plane' : 'paper-plane-outline';
                 break;
               case 'Profile':
                 // change the icon name based on the focused state
-                iconName = focused ? 'user' : 'person-outline';
+                iconName = focused ? 'person' : 'person-outline';
                 break;
               default: 
                 iconName = 'home';
             }
 
             // return the icon component
-            return <FIcon className={iconColor} name={iconName} size={14} />
+            return <Icon 
+                      name={iconName}
+                      size={18}
+                      type='ionicon'
+                    />
           }
         })}
     >
       <TabNavigator.Screen
+
         name="HomePage"
         options={{}}
         component={Home}

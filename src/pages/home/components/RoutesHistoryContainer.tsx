@@ -1,8 +1,8 @@
 import { ScrollView, View } from "react-native";
 import { Rides } from "../../../utils/types/rides.types";
-import RideHistoryTile from "../../../components/tiles/RideHistoryTile";
+import RouteHistoryTile from "../../../components/tiles/RouteHistoryTile";
 
-const RidesHistoryContainer = () => {
+const RoutesHistoryContainer = () => {
 
     // dummy data of 20 rides with different dates, times, from, to, price, distance with increasing id
     const rides:Rides = [
@@ -119,14 +119,12 @@ const RidesHistoryContainer = () => {
       ]
 
     return (
-        <View className="w-full">
-            <ScrollView className="flex flex-col gap-10">
+        <View className="w-full items-center flex-auto">
                 {rides.map((ride) => {
-                    return <RideHistoryTile {...ride}/>
+                    return <RouteHistoryTile {...ride}/>
                 })}
-            </ScrollView>
         </View>
     )
 };
 
-export default RidesHistoryContainer;
+export default RoutesHistoryContainer;
