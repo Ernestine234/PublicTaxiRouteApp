@@ -47,7 +47,7 @@ const Taxi = () =>{
     }
 
     // get location on page mount
-    useEffect(()=>{
+    React.useEffect(()=>{
         // watch location
         Geolocation.watchPosition(
             loc => {
@@ -63,19 +63,14 @@ const Taxi = () =>{
             },
             {enableHighAccuracy:true}
         );
-        // set our watch id
-        
-        // return our clear subscription
-        // return ()=>{
-        //     clearSubscriptions()
-        // }
     });
 
     return(
         
         <ScrollView>
             <View className="w-full h-full">
-                {pos ?
+                <Text>{JSON.stringify(pos)}</Text>
+                {pos &&
                     <MapView
                         initialRegion={{
                             latitude: pos!.lat,
@@ -92,10 +87,6 @@ const Taxi = () =>{
                             }}
                         />
                     </MapView>
-                    :
-                    <View>
-                        <Text>Loading....</Text>
-                    </View>
                 }
             </View>
         </ScrollView>
