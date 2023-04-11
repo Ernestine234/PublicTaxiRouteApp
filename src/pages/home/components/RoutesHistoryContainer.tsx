@@ -1,4 +1,4 @@
-import { ScrollView, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import { Rides } from "../../../utils/types/rides.types";
 import RouteHistoryTile from "../../../components/tiles/RouteHistoryTile";
 
@@ -120,9 +120,7 @@ const RoutesHistoryContainer = () => {
 
     return (
         <View className="w-full items-center flex-auto">
-                {rides.map((ride) => {
-                    return <RouteHistoryTile {...ride}/>
-                })}
+                <Text>User recent taken routes will show here</Text>
         </View>
     )
 };
