@@ -1,5 +1,10 @@
 #import "AppDelegate.h"
 
+
+//what does app delegate do? and what is its function?
+
+
+
 #import <React/RCTBundleURLProvider.h>
 
 @implementation AppDelegate

@@ -1,12 +1,12 @@
 import { Text, View } from "react-native";
 import MapView, {Animated, AnimatedRegion, Marker} from 'react-native-maps'
 
-// map region props
+// map region propsprops:CuCurre
 type CurrentLocationMapRegionProp= {
     lat: number,
-    lng: number,
-    latDelta: number | 0.0922,
-    lngDelta: number | 0.0421
+    lng:<View className=" bg-slate-600 rounded-md shadow-md p-4 h-60 w-11/12">
+            <Text>CurrentLocationMapCard</Text>
+        </View>umber | 0.0421
 }
 
 // a map component that displays the current location of the user

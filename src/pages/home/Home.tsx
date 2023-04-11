@@ -100,7 +100,7 @@ const Home = ({navigation}) => {
         />
       </View>
       <RoutesHistoryContainer />
-    </ScrollView>
+     </ScrollView>
   );
 };
 
