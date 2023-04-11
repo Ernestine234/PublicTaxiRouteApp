@@ -93,6 +93,7 @@ const Login = ({navigation}) => {
         placeholder="Password"
         onChangeText={(text) => setPassword(text)}
         defaultValue={password}
+        secureTextEntry={true}
         className=" border-2 rounded-md my-4 p-4 max-w-sm w-full"
       />
       <Pressable
