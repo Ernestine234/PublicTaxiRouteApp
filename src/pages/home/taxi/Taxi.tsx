@@ -5,7 +5,7 @@ import Geolocation from '@react-native-community/geolocation'
 
 const Taxi = () =>{
     // location state
-    const [pos,setPosition] = useState<Position|null>(null)\
+    const [pos,setPosition] = useState<Position|null>(null)
 
     // get location on page mount
     useEffect(()=>{
