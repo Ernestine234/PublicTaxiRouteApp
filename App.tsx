@@ -44,7 +44,9 @@ function App(): JSX.Element {
     <SafeAreaProvider>
       <UserContext.Provider value={user}>
         <NavigationContainer>
-          <StackRouter.Navigator>
+          <StackRouter.Navigator
+            initialRouteName={user?.uid != null ? 'Home' : 'WelcomeScreen'}
+          >
             <StackRouter.Screen
               options={{
                 headerShown: false,
