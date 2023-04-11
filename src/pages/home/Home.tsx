@@ -10,7 +10,7 @@ const requestLocation = () =>{
 
 }
 
-type Position={
+export type Position={
   lat: number,
   lng: number,
 }

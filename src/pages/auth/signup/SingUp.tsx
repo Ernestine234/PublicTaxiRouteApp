@@ -12,7 +12,12 @@ const SignUp = ({navigation}) => {
   //password
   const [password, setPassword] = React.useState('');
   // use signup hook
-  const {register, loading,error,userData} = useCreateUserWithEmailAndPassword(email,password);
+  const {
+    register,
+    loading,
+    error,
+    userData
+  } = useCreateUserWithEmailAndPassword(email,password);
 
 
   return (
@@ -37,6 +42,7 @@ const SignUp = ({navigation}) => {
         placeholder="Password"
         onChangeText={(text) => setPassword(text)}
         defaultValue={password}
+        
         className=" border-2 rounded-md my-4 p-4 max-w-sm w-full"
       />
       
