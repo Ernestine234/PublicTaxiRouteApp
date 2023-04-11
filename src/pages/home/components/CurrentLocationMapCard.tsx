@@ -30,7 +30,7 @@ const CurrentLocationMapCard = (props?:CurrentLocationMapRegionProp) => {
                         latitude: props!.lat,
                         longitude: props!.lng
                     }}
-                    title="My location"
+                    title="cu"
                 />
             </MapView>
         </View>
