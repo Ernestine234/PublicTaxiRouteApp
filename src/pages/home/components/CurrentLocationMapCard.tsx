@@ -2,7 +2,7 @@ import { Text, View } from "react-native";
 import MapView, {Animated, AnimatedRegion, Marker} from 'react-native-maps'
 
 // map region props
-type CurrentLocationMapRegionProp= {
+export type CurrentLocationMapRegionProp= {
     lat: number,
     lng: number,
     latDelta: number | 0.0922,
