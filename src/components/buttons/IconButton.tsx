@@ -24,7 +24,9 @@ const IconButton = (props:IconButtonProp) => {
                     name={props.iconName}
                     type={props.iconType}
                     backgroundColor={props.backgroundColor}
-                    color={props.backgroundColor}
+                    iconStyle={{
+                        color: 'white'
+                    }}
                 />
             </Pressable>
         )
