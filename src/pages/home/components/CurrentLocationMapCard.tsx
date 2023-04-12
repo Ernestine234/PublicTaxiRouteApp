@@ -112,6 +112,12 @@ const CurrentLocationMapCard = (props?:CurrentLocationMapRegionProp) => {
                             lng: selectedItem.lng
                         })
                     }}
+                    buttonTextAfterSelection={(selectedItem,index)=>{
+                        return selectedItem.name
+                    }}
+                    rowTextForSelection={(item,index)=>{
+                        return item.name
+                    }}
                 />
             </View>
         </View>
