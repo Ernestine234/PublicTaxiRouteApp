@@ -46,7 +46,7 @@ const Home = ({navigation}) => {
   return (
     <View className='h-full bg-slate-900 flex flex-col'>
       <HomeAppBar navigation={navigation}/>
-      <View className='w-full absolute bottom-2 top-0'>
+      <View className='absolute bottom-8 z-10 w-11/12 self-center'>
         <GooglePlacesAutocomplete
           styles={{
             textInput: {

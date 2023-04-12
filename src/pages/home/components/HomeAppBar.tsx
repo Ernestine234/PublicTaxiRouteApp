@@ -18,7 +18,7 @@ const HomeAppBar = (props) => {
                 <IconButton
                    iconName="exit-outline"
                    iconType="ionicon"
-                   backgroundColor="text-white"
+                   backgroundColor="white"
                    circle={true}
                    onPress={async()=>{
                       await signOut()
