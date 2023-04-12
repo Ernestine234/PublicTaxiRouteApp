@@ -3,8 +3,8 @@ import {useContext, useEffect, useState} from "react";
 
 const Profile = () => {
     return (
-        <View>
-            <Text>Profile page</Text>
+        <View className="w-full h-full justify-center items-center">
+            <Text>Profile page not yet implemented</Text>
         </View>
     )
 }

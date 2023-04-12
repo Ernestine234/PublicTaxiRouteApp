@@ -1,8 +1,11 @@
 import React,{useState, useContext, useEffect} from "react";
 import { ScrollView, Text, View } from "react-native";
 import { Position } from "../Home";
-import Geolocation from '@react-native-community/geolocation'
 import MapView, { Marker } from "react-native-maps";
+import Geolocation,{ clearWatch, watchPosition } from "react-native-geolocation-service";
+import { getLocationPermission } from "../../../helpers/map/location.helpers";
+import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+import { GMAP_KEY } from "../../../utils/strings/app.strings";
 
 const Taxi = () =>{
     // location state
@@ -39,7 +42,7 @@ const Taxi = () =>{
     // clear all active watch
     function clearSubscriptions(){
         // clear watch id if not null
-        locWatchID !== null && Geolocation.clearWatch(locWatchID)
+        locWatchID !== null && clearWatch(locWatchID)
         // reset it to null
         setLocWatchID(null)
         // reset position
@@ -49,27 +52,26 @@ const Taxi = () =>{
     // get location on page mount
     React.useEffect(()=>{
         // watch location
-        Geolocation.watchPosition(
-            loc => {
-                console.log(JSON.stringify(loc))
-                setPosition({
-                    lat: loc.coords.latitude,
-                    lng: loc.coords.longitude
-                })
-            },
-            err => {
-                // log the error
-                console.log(err)
-            },
-            {enableHighAccuracy:true}
-        );
+        getLocationPermission().then(res=>{
+            if(res){
+                console.log(`location permission status ${res}`)
+              Geolocation.watchPosition(
+                pos => {
+                    console.log(pos)
+                  setPosition({
+                    lat: pos.coords.latitude,
+                    lng: pos.coords.longitude
+                  })
+                }
+              )
+            }
+          })
     });
 
     return(
-        
-        <ScrollView>
             <View className="w-full h-full">
-                <Text>{JSON.stringify(pos)}</Text>
+                {pos && <Text>Hello {pos.lat}</Text>}
+                <Text>Hello</Text>
                 {pos &&
                     <MapView
                         initialRegion={{
@@ -88,8 +90,18 @@ const Taxi = () =>{
                         />
                     </MapView>
                 }
+                <GooglePlacesAutocomplete
+                    placeholder="Search destination"
+                    onPress={(data, details=null)=>{
+                        console.log(data,details)
+                    }}
+                    query={{
+                        key:{GMAP_KEY},
+                        language: 'en',
+                    }}
+                    // currentLocation={true}
+                />
             </View>
-        </ScrollView>
     )
 }
 
