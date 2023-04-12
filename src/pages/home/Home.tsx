@@ -1,10 +1,13 @@
-import {View, Text, ScrollView, PermissionsAndroid} from 'react-native';
+import {View, Text, ScrollView, PermissionsAndroid, StyleSheet} from 'react-native';
 import React from 'react';
 import HomeAppBar from './components/HomeAppBar';
 import CurrentLocationMapCard from './components/CurrentLocationMapCard';
 import RoutesHistoryContainer from './components/RoutesHistoryContainer';
-import Geolocation from '@react-native-community/geolocation';
+import Geolocation, {getCurrentPosition, watchPosition} from 'react-native-geolocation-service';
 import ElevatedButton from '../../components/buttons/ElevatedButton';
+import { getLocationPermission } from '../../helpers/map/location.helpers';
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import { GMAP_KEY } from '../../utils/strings/app.strings';
 
 const requestLocation = () =>{
 
@@ -25,58 +28,44 @@ const Home = ({navigation}) => {
 
   React.useEffect(()=>{
      // request location permission first so as to get user's current location
-      Geolocation.requestAuthorization(
-        ()=>{
-          // console.log('location permission granted');
+      getLocationPermission().then(res=>{
+        if(res){
           Geolocation.watchPosition(
             pos => {
-              // console.log(JSON.stringify(pos))
-              // set position
               setPosition({
                 lat: pos.coords.latitude,
-                lng: pos.coords.longitude,
+                lng: pos.coords.longitude
               })
-            },
-            err => {
-              console.log(err)
-            },
-            {enableHighAccuracy: true}
-          );
-          // get current location
-          // Geolocation.getCurrentPosition(
-          //   currentLoc =>{
-          //     // console.log(JSON.stringify(currentLoc), 'ggggg')
-          //     // set intial position
-          //     setInitialPos({
-          //       lat: currentLoc.coords.latitude,
-          //       lng: currentLoc.coords.longitude
-          //     })
-             
-            
-          //   },
-          //   err => {
-          //     console.log(err.message)
-          //   },
-          //   {enableHighAccuracy: true}
-          // );
-        },
-        err => {
-          console.error(err)
+            }
+          )
         }
-      )
+      })
     }
   );
    
   return (
-    <ScrollView >
+    <View className='h-full flex flex-col'>
       <HomeAppBar navigation={navigation}/>
+      <GooglePlacesAutocomplete
+      styles={styles.searchContainer}
+        placeholder="Search destination"
+        onPress={(data, details=null)=>{
+            console.log(data,details)
+        }}
+        query={{
+            key:{GMAP_KEY},
+            language: 'en',
+        }}
+        // currentLocation={true}
+    />
       {position ?
         <CurrentLocationMapCard
           lat={position.lat}
           lng={position.lng}
           latDelta={0.0922}
           lngDelta={0.0421}
-        /> : 
+        /> 
+        : 
         <View className='bg-slate-600 self-center rounded-md items-center justify-center shadow-md h-60 w-11/12'>
           <Text className='text-slate-50 text-2xl text-center'>Getting current location....</Text>
         </View>
@@ -100,8 +89,15 @@ const Home = ({navigation}) => {
         />
       </View>
       <RoutesHistoryContainer />
-    </ScrollView>
+     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  searchContainer:{
+    flex:1,
+    padding:10,
+  }
+})
 
 export default Home;

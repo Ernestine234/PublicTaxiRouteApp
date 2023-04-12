@@ -1,5 +1,5 @@
 /* eslint-disable quotes */
-import {View, Text, TextInput, Button, TouchableOpacity, Pressable} from "react-native";
+import {View, Text, TextInput, Button, TouchableOpacity, Pressable, Alert} from "react-native";
 import React from "react";
 import {Dialog} from '@rneui/base';
 import ElevatedButton from "../../../components/buttons/ElevatedButton";
@@ -34,12 +34,12 @@ const Login = ({navigation}) => {
 
   var buttonProps = [
     {
-      title: "Login with Email",
+      title: "Login ",
       textColor:"text-white",
       backgroundColor:"bg-green-500",
       onPress: async() => {
        await login()
-       if(userData?.uid){
+       if(user?.uid){
         navigation.navigate('Home')
        }
       },
@@ -63,24 +63,17 @@ const Login = ({navigation}) => {
     },
   ]
   return (
-    <View className=" bg-slate-300 flex flex-col flex-auto items-center">
+    <View className="text-black bg-slate-300 flex flex-col flex-auto items-center">
       <View className="max-w-[360px] w-full">
-        <Text className="text-3xl font-bold mt-20">
+        <Text className="text-3xl text-black font-bold mt-20">
           Welcome!
         </Text>
-        <Text className="mb-12">
+        <Text className="mb-12 text-black">
           Login in right now to access our services
         </Text>
         {loading && <Text>Loading...</Text>}
         {error && 
-          <Dialog
-            onBackdropPress={()=>{
-              // reset error to dismiss dialog
-              setError(null)
-            }}
-          >
-            <Dialog.Title>{error.name}</Dialog.Title>
-          </Dialog>
+          <Text>{error.message}</Text>
           }
         {userData && <Text>{userData.email}</Text>}
         <TextInput
