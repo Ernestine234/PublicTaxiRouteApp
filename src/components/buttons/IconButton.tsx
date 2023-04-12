@@ -18,10 +18,12 @@ const IconButton = (props:IconButtonProp) => {
         return (
             <Pressable
                 onPress={props.onPress}
+                className={props.backgroundColor}
             >
                 <Icon
                     name={props.iconName}
                     type={props.iconType}
+                    
                 />
             </Pressable>
         )
