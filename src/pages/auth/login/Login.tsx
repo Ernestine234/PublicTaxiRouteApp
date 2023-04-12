@@ -1,5 +1,5 @@
 /* eslint-disable quotes */
-import {View, Text, TextInput, Button, TouchableOpacity, Pressable} from "react-native";
+import {View, Text, TextInput, Button, TouchableOpacity, Pressable, Alert} from "react-native";
 import React from "react";
 import {Dialog} from '@rneui/base';
 import ElevatedButton from "../../../components/buttons/ElevatedButton";
@@ -39,7 +39,7 @@ const Login = ({navigation}) => {
       backgroundColor:"bg-green-500",
       onPress: async() => {
        await login()
-       if(userData?.uid){
+       if(user?.uid){
         navigation.navigate('Home')
        }
       },
@@ -73,14 +73,7 @@ const Login = ({navigation}) => {
         </Text>
         {loading && <Text>Loading...</Text>}
         {error && 
-          <Dialog
-            onBackdropPress={()=>{
-              // reset error to dismiss dialog
-              setError(null)
-            }}
-          >
-            <Dialog.Title>{error.name}</Dialog.Title>
-          </Dialog>
+          <Text>{error.message}</Text>
           }
         {userData && <Text>{userData.email}</Text>}
         <TextInput
