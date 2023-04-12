@@ -1,5 +1,5 @@
 import {View, Text, ScrollView, PermissionsAndroid, StyleSheet} from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import HomeAppBar from './components/HomeAppBar';
 import CurrentLocationMapCard from './components/CurrentLocationMapCard';
 import RoutesHistoryContainer from './components/RoutesHistoryContainer';
@@ -44,7 +44,7 @@ const Home = ({navigation}) => {
   );
    
   return (
-    <View className='h-full flex flex-col'>
+    <View className='h-full bg-slate-900 flex flex-col'>
       <HomeAppBar navigation={navigation}/>
       <GooglePlacesAutocomplete
       styles={styles.searchContainer}
@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
   searchContainer:{
     flex:1,
     padding:10,
+    color: 'black'
   }
 })
 
