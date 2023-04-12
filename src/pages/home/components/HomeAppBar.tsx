@@ -11,13 +11,14 @@ const HomeAppBar = (props) => {
     const user = useUser();
     return (
         <View className="h-fit px-4 py-6 flex flex-row justify-between">
-            <Text className="text-xl font-bold">Hello {user?.email}</Text>
+            <Text className="text-xl text-white font-bold">Hello {user?.email}</Text>
             <View
                 className=""
             >
                 <IconButton
                    iconName="exit-outline"
                    iconType="ionicon"
+                   backgroundColor="bg-white"
                    circle={true}
                    onPress={async()=>{
                       await signOut()
