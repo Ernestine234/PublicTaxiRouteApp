@@ -46,18 +46,24 @@ const Home = ({navigation}) => {
   return (
     <View className='h-full bg-slate-900 flex flex-col'>
       <HomeAppBar navigation={navigation}/>
-      <GooglePlacesAutocomplete
-      styles={styles.searchContainer}
-        placeholder="Search destination"
-        onPress={(data, details=null)=>{
-            console.log(data,details)
-        }}
-        query={{
-            key:{GMAP_KEY},
-            language: 'en',
-        }}
-        // currentLocation={true}
-    />
+      <View className='w-full absolute bottom-2 top-0'>
+        <GooglePlacesAutocomplete
+          styles={{
+            textInput: {
+              color: 'black'
+            }
+          }}
+          placeholder="Search destination"
+          onPress={(data, details=null)=>{
+              console.log(data,details)
+          }}
+          query={{
+              key:{GMAP_KEY},
+              language: 'en',
+          }}
+          // currentLocation={true}
+      />
+      </View>
       {position ?
         <CurrentLocationMapCard
           lat={position.lat}
@@ -71,7 +77,7 @@ const Home = ({navigation}) => {
         </View>
       }
       {/* <RoutesHistoryContainer/> */}
-      <View
+      {/* <View
         className='flex flex-row justify-between my-6 items-center px-4'
       >
         <Text
@@ -88,7 +94,7 @@ const Home = ({navigation}) => {
           fontSize='text-sm'
         />
       </View>
-      <RoutesHistoryContainer />
+      <RoutesHistoryContainer /> */}
      </View>
   );
 };
@@ -97,7 +103,7 @@ const styles = StyleSheet.create({
   searchContainer:{
     flex:1,
     padding:10,
-    color: 'black'
+    color: 'black',
   }
 })
 

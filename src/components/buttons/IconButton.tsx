@@ -23,7 +23,8 @@ const IconButton = (props:IconButtonProp) => {
                 <Icon
                     name={props.iconName}
                     type={props.iconType}
-                    
+                    backgroundColor={props.backgroundColor}
+                    color={props.backgroundColor}
                 />
             </Pressable>
         )

@@ -14,7 +14,7 @@ const CurrentLocationMapCard = (props?:CurrentLocationMapRegionProp) => {
     
     //todo: implement map component
     return (
-        <View className=" bg-slate-600 self-center rounded-xl overflow-hidden shadow-xl shadow-black h-60 w-11/12">
+        <View className=" bg-slate-600 self-center overflow-hidden shadow-xl shadow-black h-full w-full">
             <MapView 
                 initialRegion={{
                     latitude: props!.lat,

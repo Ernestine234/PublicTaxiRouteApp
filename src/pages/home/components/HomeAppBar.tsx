@@ -10,7 +10,7 @@ const HomeAppBar = (props) => {
     // get user info from context
     const user = useUser();
     return (
-        <View className="h-fit px-4 py-6 flex flex-row justify-between">
+        <View className="h-fit px-4 py-4 flex flex-row justify-between">
             <Text className="text-xl text-white font-bold">Hello {user?.email}</Text>
             <View
                 className=""
@@ -18,7 +18,7 @@ const HomeAppBar = (props) => {
                 <IconButton
                    iconName="exit-outline"
                    iconType="ionicon"
-                   backgroundColor="bg-white"
+                   backgroundColor="text-white"
                    circle={true}
                    onPress={async()=>{
                       await signOut()
