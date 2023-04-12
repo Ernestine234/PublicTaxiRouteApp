@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 
-//what is the function of the UIKit?
+
 #import "AppDelegate.h"
 
 

@@ -1,41 +1,33 @@
 {
   "project_info": {
-    "project_number": "392431171069",
-    "project_id": "publicroutetaxiapp",
-    "storage_bucket": "publicroutetaxiapp.appspot.com"
+    "project_number": "1068418690462",
+    "project_id": "public-route-app-73b85",
+    "storage_bucket": "public-route-app-73b85.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:392431171069:android:c1f119b60b225a157bd594",
+        "mobilesdk_app_id": "1:1068418690462:android:8eeb38a924946a4ac5fa8f",
         "android_client_info": {
           "package_name": "com.publictaxirouteapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "392431171069-vif46q4cgutfsrv14ugeabpmdaeqsp1n.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.publictaxirouteapp",
-            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
-          }
-        },
-        {
-          "client_id": "392431171069-6qsi5nbc65jcminpnen2td1spruml3ms.apps.googleusercontent.com",
+          "client_id": "1068418690462-5rni7p9fbhkjetisitefqlb7orebi91i.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCPV3BsK3HE9RmEeejjCyjuIGG5fyoygpE"
+          "current_key": "AIzaSyAPZZzrsvrj5O07kLvBYdwvd7xALR0t3bw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "392431171069-6qsi5nbc65jcminpnen2td1spruml3ms.apps.googleusercontent.com",
+              "client_id": "1068418690462-5rni7p9fbhkjetisitefqlb7orebi91i.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -37,4 +37,4 @@ const CurrentLocationMapCard = (props?:CurrentLocationMapRegionProp) => {
     )
 };
 
-export default CurrentLocationMapCard;
+export default CurrentLocationMapCard; 

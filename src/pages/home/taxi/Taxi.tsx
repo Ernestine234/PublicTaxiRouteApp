@@ -69,7 +69,7 @@ const Taxi = () =>{
     });
 
     return(
-            <View className="w-full h-full">
+            <View className="w-full bg-slate-900 h-full">
                 {pos && <Text>Hello {pos.lat}</Text>}
                 <Text>Hello</Text>
                 {pos &&
