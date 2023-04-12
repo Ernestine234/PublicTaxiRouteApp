@@ -1,7 +1,6 @@
 #import "AppDelegate.h"
 
 
-//what does app delegate do? and what is its function?
 
 
 
